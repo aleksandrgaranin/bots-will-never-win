@@ -10,7 +10,7 @@ function App() {
   const [page, setPage] = useState(1)
   const { jobs, loading, error } = useFetchJobs(params, page)
   return (
-    <Container>
+    <Container style={{width: '100%'}}>
       {loading && <h1>...loading...</h1>}
       {error && <h1>Error...something went wrong</h1>}
       <Jobs jobs={jobs}/>
