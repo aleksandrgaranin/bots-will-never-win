@@ -6,11 +6,18 @@ import MyVerticallyCenteredModal from './JobElement/JobElement'
 export default function Jobs({ jobs }) {
     const [modalShow, setModalShow] = useState(false);
     const [modalJob, setModalJob] = useState({})
-    const [isSorted, setIsSorted] = useState(false)
+    const [unsorted, setUnsorted] = useState()
     const [isAscendingTitle, setIsAscendingTitle] = useState()
     const [isAscendingDate, setIsAscendingDate] = useState()
+    const [isloading, setIsLoading] = useState(true)
+    
     useEffect(() => {
-    }, [jobs])
+        if (jobs && !isloading) { 
+            setUnsorted(jobs)
+            console.log(unsorted)
+            setIsLoading(false)
+        }
+    },[])
 
     const showModalHandler = (job) => {
         setModalJob(job)
