@@ -24,16 +24,15 @@ function App() {
 
   return (
     <Container className="my-3">
-      <h1 style={{ textAlign: 'center' }}> GitHub Jobs </h1>
-      {loading && <h1 style={{ textAlign: 'center' }}>...loading...</h1>}
+      {loading ? <h1 style={{ textAlign: 'center' }}>...loading...</h1> : <h1 style={{ textAlign: 'center' }}> GitHub Jobs </h1>}
       {error && <h1>Error...something went wrong. Please reload the page</h1>}
-      {!loading ?
-        <div>
-          <SearchForm params={params} onParamChange={paramChangeHandler}></SearchForm>
-          <JPagination page={page} setPage={setPage} hasNextPage={hasNextPage}/>
-          <Jobs jobs={jobs} />
-          <JPagination page={page} setPage={setPage} hasNextPage={hasNextPage}/>
-        </div> : null}
+
+      <div>
+        <SearchForm params={params} onParamChange={paramChangeHandler}></SearchForm>
+        <JPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
+        <Jobs jobs={jobs} />
+        <JPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
+      </div>
     </Container>
   );
 }

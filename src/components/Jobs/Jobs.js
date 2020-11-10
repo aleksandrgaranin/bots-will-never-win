@@ -3,21 +3,21 @@ import Table from 'react-bootstrap/Table';
 
 import MyVerticallyCenteredModal from './JobElement/JobElement'
 
-export default function Jobs({ jobs }) {
+const Jobs =({ jobs }) => {
     const [modalShow, setModalShow] = useState(false);
     const [modalJob, setModalJob] = useState({})
     const [unsorted, setUnsorted] = useState()
     const [isAscendingTitle, setIsAscendingTitle] = useState()
     const [isAscendingDate, setIsAscendingDate] = useState()
     const [isloading, setIsLoading] = useState(true)
-    
+
     useEffect(() => {
-        if (jobs && !isloading) { 
+        if (jobs && !isloading) {
             setUnsorted(jobs)
             console.log(unsorted)
             setIsLoading(false)
         }
-    },[])
+    }, [])
 
     const showModalHandler = (job) => {
         setModalJob(job)
@@ -28,34 +28,32 @@ export default function Jobs({ jobs }) {
         setModalShow(false)
     }
 
-    const sortByTitlehandler = () => {
+    const sortByTitlehandler = (event, sortKey) => {
         if (!isAscendingTitle) {
             jobs = jobs.sort((a, b) => {
-                let ta = a.title.trim().toLowerCase(),
-                    tb = b.title.trim().toLowerCase();
+                let ta = a[sortKey].trim().toLowerCase(),
+                    tb = b[sortKey].trim().toLowerCase();
                 if (ta < tb) {
                     return -1;
                 }
                 if (ta > tb) {
                     return 1;
                 }
-            })
-            // setIsSorted(true)        
+            })                 
             setIsAscendingTitle(true)
         } else if (isAscendingTitle) {
             jobs = jobs.sort((a, b) => {
-                let ta = a.title.trim().toLowerCase(),
-                    tb = b.title.trim().toLowerCase();
+                let ta = a[sortKey].trim().toLowerCase(),
+                    tb = b[sortKey].trim().toLowerCase();
                 if (ta > tb) {
                     return -1;
                 }
                 if (ta < tb) {
                     return 1;
                 }
-            })
-            // setIsSorted(true)        
+            })               
             setIsAscendingTitle(false)
-        } 
+        }
     }
 
     const sortByDate = () => {
@@ -64,8 +62,7 @@ export default function Jobs({ jobs }) {
                 let da = new Date(a.created_at),
                     db = new Date(b.created_at);
                 return da - db;
-            })
-            // setIsSorted(true)        
+            })          
             setIsAscendingDate(true)
         } else if (isAscendingDate) {
             jobs = jobs.sort((a, b) => {
@@ -74,7 +71,7 @@ export default function Jobs({ jobs }) {
                 return db - da;
             })
             setIsAscendingDate(false)
-            
+
         }
     }
 
@@ -84,18 +81,15 @@ export default function Jobs({ jobs }) {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th onClick={sortByTitlehandler}>Title</th>
-                        <th>Company Name</th>
+                        <th onClick={e => sortByTitlehandler(e, 'title')}>Title</th>
+                        <th onClick={e => sortByTitlehandler(e, 'company')}>Company Name</th>
                         <th onClick={sortByDate}>Date</th>
-                        <th>Location</th>
-                        <th>Type</th>
+                        <th onClick={e => sortByTitlehandler(e, 'location')}>Location</th>
+                        <th onClick={e => sortByTitlehandler(e, 'type')}>Type</th>
                     </tr>
                     {jobs.map(job => {
-                        // console.log(job)
                         return (
-
                             <tr key={job.id} onClick={() => showModalHandler(job)} >
-                                {/* <JobElement job={job} /> */}
                                 <td>{job.title}</td>
                                 <td>{job.company}</td>
                                 <td>{new Date(job.created_at).toLocaleDateString()}</td>
@@ -103,7 +97,6 @@ export default function Jobs({ jobs }) {
                                 <td>{job.type}</td>
                             </tr>
                         )
-
                     })}
 
                 </thead>
@@ -116,3 +109,5 @@ export default function Jobs({ jobs }) {
         </div>
     )
 }
+export default Jobs;
+
