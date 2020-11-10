@@ -6,8 +6,9 @@ import MyVerticallyCenteredModal from './JobElement/JobElement'
 export default function Jobs({ jobs }) {
     const [modalShow, setModalShow] = useState(false);
     const [modalJob, setModalJob] = useState({})
-    const [sortedJobs, setSortedJobs] = useState(jobs)
     const [isSorted, setIsSorted] = useState(false)
+    const [isAscendingTitle, setIsAscendingTitle] = useState()
+    const [isAscendingDate, setIsAscendingDate] = useState()
     useEffect(() => {
     }, [jobs])
 
@@ -21,31 +22,53 @@ export default function Jobs({ jobs }) {
     }
 
     const sortByTitlehandler = () => {
-        console.log(jobs)
-        jobs = jobs.sort((a, b) => {
-            let ta = a.title.trim().toLowerCase(),
-            tb = b.title.trim().toLowerCase();
-            if (ta < tb) {
-                return -1;
-            }
-            if (ta > tb) {
-                return 1;
-            }})
-        // setIsSorted(true)        
-        console.log(jobs)  
-        setIsSorted(!isSorted)      
+        if (!isAscendingTitle) {
+            jobs = jobs.sort((a, b) => {
+                let ta = a.title.trim().toLowerCase(),
+                    tb = b.title.trim().toLowerCase();
+                if (ta < tb) {
+                    return -1;
+                }
+                if (ta > tb) {
+                    return 1;
+                }
+            })
+            // setIsSorted(true)        
+            setIsAscendingTitle(true)
+        } else if (isAscendingTitle) {
+            jobs = jobs.sort((a, b) => {
+                let ta = a.title.trim().toLowerCase(),
+                    tb = b.title.trim().toLowerCase();
+                if (ta > tb) {
+                    return -1;
+                }
+                if (ta < tb) {
+                    return 1;
+                }
+            })
+            // setIsSorted(true)        
+            setIsAscendingTitle(false)
+        } 
     }
 
     const sortByDate = () => {
-        console.log(jobs)
-        jobs = jobs.sort((a, b) => {
-            let da = new Date(a.created_at),
-                db = new Date(b.created_at);
-            return da - db;
-        })
-        // setIsSorted(true)        
-        console.log(jobs)  
-        setIsSorted(!isSorted)      
+        if (!isAscendingDate) {
+            jobs = jobs.sort((a, b) => {
+                let da = new Date(a.created_at),
+                    db = new Date(b.created_at);
+                return da - db;
+            })
+            // setIsSorted(true)        
+            setIsAscendingDate(true)
+        } else if (isAscendingDate) {
+            jobs = jobs.sort((a, b) => {
+                let da = new Date(a.created_at),
+                    db = new Date(b.created_at);
+                return db - da;
+            })
+            setIsAscendingDate(false)
+            
+        }
     }
 
 
@@ -60,7 +83,7 @@ export default function Jobs({ jobs }) {
                         <th>Location</th>
                         <th>Type</th>
                     </tr>
-                    { jobs.map(job => {
+                    {jobs.map(job => {
                         // console.log(job)
                         return (
 
