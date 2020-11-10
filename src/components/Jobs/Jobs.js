@@ -6,7 +6,7 @@ import JobElement from './JobElement/JobElement'
 export default function Jobs({ jobs }) {
     
     return (
-        <Table striped bordered hover >
+        <Table striped hover>
             <thead>
                 {jobs.map(job => {
                     console.log(job)
