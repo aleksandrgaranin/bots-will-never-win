@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 
-import MyVerticallyCenteredModal from './JobElement/JobElement'
+import JobElement from './JobElement/JobElement'
 
 const Jobs =({ jobs }) => {
     const [modalShow, setModalShow] = useState(false);
     const [modalJob, setModalJob] = useState({})
-    const [unsorted, setUnsorted] = useState()
     const [isAscendingTitle, setIsAscendingTitle] = useState()
     const [isAscendingDate, setIsAscendingDate] = useState()
-    const [isloading, setIsLoading] = useState(true)
-
-    useEffect(() => {
-        if (jobs && !isloading) {
-            setUnsorted(jobs)
-            console.log(unsorted)
-            setIsLoading(false)
-        }
-    }, [])
 
     const showModalHandler = (job) => {
         setModalJob(job)
@@ -40,6 +30,7 @@ const Jobs =({ jobs }) => {
                     return 1;
                 }
             })                 
+            console.log(jobs)
             setIsAscendingTitle(true)
         } else if (isAscendingTitle) {
             jobs = jobs.sort((a, b) => {
@@ -71,14 +62,13 @@ const Jobs =({ jobs }) => {
                 return db - da;
             })
             setIsAscendingDate(false)
-
         }
     }
 
 
     return (
         <div>
-            <Table striped bordered hover>
+            <Table striped bordered hover variant="dark" responsive>
                 <thead>
                     <tr>
                         <th onClick={e => sortByTitlehandler(e, 'title')}>Title</th>
@@ -87,6 +77,8 @@ const Jobs =({ jobs }) => {
                         <th onClick={e => sortByTitlehandler(e, 'location')}>Location</th>
                         <th onClick={e => sortByTitlehandler(e, 'type')}>Type</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     {jobs.map(job => {
                         return (
                             <tr key={job.id} onClick={() => showModalHandler(job)} >
@@ -98,10 +90,11 @@ const Jobs =({ jobs }) => {
                             </tr>
                         )
                     })}
+                    </tbody>
 
-                </thead>
+                
             </Table>
-            <MyVerticallyCenteredModal
+            <JobElement
                 job={modalJob}
                 show={modalShow}
                 onHide={closeModal}

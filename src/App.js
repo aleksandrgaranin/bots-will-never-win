@@ -23,9 +23,9 @@ function App() {
 
 
   return (
-    <Container className="my-3">
-      {loading ? <h1 style={{ textAlign: 'center' }}>...loading...</h1> : <h1 style={{ textAlign: 'center' }}> GitHub Jobs </h1>}
-      {error && <h1>Error...something went wrong. Please reload the page</h1>}
+    <Container style={{ backgroundColor: 'lightgray', padding: '25px' }}>
+      {loading ? <h2 style={{ textAlign: 'center', color: 'blue' }}>...loading...</h2> : <h2 style={{ textAlign: 'center', color: 'darkblue' }}> Jobs from GitHub API</h2>}
+      {error && <h2>Error...something went wrong. Please reload the page</h2>}
 
       <div>
         <SearchForm params={params} onParamChange={paramChangeHandler}></SearchForm>
