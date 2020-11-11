@@ -28,8 +28,10 @@ axios, react-bootstrap, bootstrap, clone-deep, react-markdown, gh-pages(for depl
 
 ## CORS 
 
-To get around the CORS ERROR I used: 
+To get around the CORS ERROR I used proxy server: 
  [https://cors-anywhere.herokuapp.com/]
 This API enables cross-origin requests to anywhere.
+
+#### Sometimes this proxy is unstable
 
 ## This App is Completed and I had a lot of fun.
