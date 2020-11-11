@@ -8,7 +8,7 @@ const SearchForm = ({ params, onParamChange }) => {
                 <Form.Group as={Col}>
                     <Form.Label>Description</Form.Label>
                     <Form.Control onChange={onParamChange} value={params.description} name="description" type="text" />
-                    <Form.Check onChange={onParamChange} value={params.full_time} name="full_time" id="full_time" label="Only Full Time" type="checkbox" className="mt-2" />
+                    <Form.Check onChange={onParamChange} value={params.full_time} name="full_time" id="full-time" label="Only Full Time" type="checkbox" className="mt-2" />
                 </Form.Group>
                 <Form.Group xs="auto" className="ml-2">
                 </Form.Group>

@@ -12,28 +12,42 @@ function App() {
   const [page, setPage] = useState(1)
   const { jobs, loading, error, hasNextPage } = useFetchJobs(params, page)
 
-
   const paramChangeHandler = (event) => {
     const param = event.target.name
     const value = event.target.value
-    setParams(prevParans => {
-      return { ...prevParans, [param]: value }
+    console.log(param, value)
+    // setPage(1)
+    setParams(prevParanms => {
+      return { ...prevParanms, [param]: value }
     })
   }
+  
 
+  let jobElement = null
 
-  return (
-    <Container style={{ backgroundColor: 'lightgray', padding: '25px' }}>
-      {loading ? <h2 style={{ textAlign: 'center', color: 'blue' }}>...loading...</h2> : <h2 style={{ textAlign: 'center', color: 'darkblue' }}> Jobs from GitHub API</h2>}
+  if (loading) {
+    jobElement = (
+      <h2 style={{ textAlign: 'center', color: 'blue' }}>...loading...</h2>
+    )
+  }else{
+    jobElement = (
+      <Container style={{ backgroundColor: 'lightgray', padding: '25px' }}>
+      <h2 style={{ textAlign: 'center', color: 'darkblue' }}> Jobs from GitHub API</h2>
       {error && <h2>Error...something went wrong. Please reload the page</h2>}
-
+      <SearchForm params={params} onParamChange={paramChangeHandler}></SearchForm>
       <div>
-        <SearchForm params={params} onParamChange={paramChangeHandler}></SearchForm>
         <JPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
         <Jobs jobs={jobs} />
         <JPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
-      </div>
+      </div>     
     </Container>
+    )
+  }
+
+  return (
+    <div>
+      {jobElement}
+    </div>
   );
 }
 

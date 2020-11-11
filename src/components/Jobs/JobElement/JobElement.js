@@ -17,9 +17,9 @@ const JobElement = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h5 style={{ color: 'darkgreen' }}>Company: {props.job.company}</h5>
-                <Badge className="m-1 mb-2" variant="secondary">{props.job.location}</Badge>
-                <Badge className="m-1 mb-2" variant="success">{props.job.type}</Badge>
+                <h5 style={{ color: 'darkgreen' }}>"{props.job.company}"</h5>
+                <Badge className="mr-1 mb-2" variant="secondary">{props.job.location}</Badge>
+                <Badge className="mr-1 mb-2" variant="success">{props.job.type}</Badge>
                 <br />
                 <hr/>
                 <div>
