@@ -1,13 +1,11 @@
+# Here is a link to deployed project
+
+https://aleksandrgaranin.github.io/bots-will-never-win/
+
+
 # Requirements 
 
-Make sure you have Node.js and Npm installed in your machine.
-
-Install Node.js
-
-Install Npm
-
-
-
+Make sure you have latest version of Node.js and Npm installed in your machine.
 
 # Run React App
 
@@ -26,7 +24,7 @@ To run this application locally:
 
 ## Third Party Packages 
 
-axios, react-bootstrap, bootstrap, clone-deep, react-markdown
+axios, react-bootstrap, bootstrap, clone-deep, react-markdown, gh-pages(for deployment to HitHub)
 
 ## CORS 
 
