@@ -8,7 +8,7 @@ const ACTIONS = {
     UPDATE_HAS_NEXT_PAGE: "update-has-next-page"
 }
 const AROUND_CORS = 'https://cors-anywhere.herokuapp.com/'
-const BASE_URL = AROUND_CORS + 'https://jobs.github.com/positions.json'
+const BASE_URL ='https://jobs.github.com/positions.json'
 
 const reducer = (state, action) => {
     switch (action.type) {
