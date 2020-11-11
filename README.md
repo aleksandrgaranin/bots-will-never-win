@@ -22,7 +22,7 @@ To run this application locally:
     open terminal and type:
     #### $node proxy.js
 4. Go back to he cloned repository 
-    #### cd .. 
+    #### $cd .. 
     and Run the server by typing: 
     #### $npm start    
 5. App url is:
