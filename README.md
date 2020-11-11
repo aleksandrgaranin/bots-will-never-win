@@ -1,19 +1,19 @@
 # Run React App
 
-    To run this application locally:
+To run this application locally:
 
 1. Open a terminal and clone repository into the folder where you want to store it 
     #### $git clone https://github.com/aleksandrgaranin/bots-will-never-win.git
 2. Move to the cloned repository by 
     #### $cd bots-will-never-win
 3. Run command 
-    #### H4/$npm install
+    #### /$npm install
 4. Run the server by typing 
-    #### H4/$npm start
+    #### /$npm start
 5. App url is:
     #### http://localhost:3000
 
-## Third Party Pckages was used
+## Third Party Packages 
 
 axios, react-bootstrap, bootstrap, clone-deep, react-markdown,
 
