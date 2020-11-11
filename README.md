@@ -32,12 +32,16 @@ To run this application locally:
 
 axios, react-bootstrap, bootstrap, clone-deep, react-markdown, gh-pages (for deployment to HitHub), cors-anywhere(fro local proxy server)
 
-## CORS 
+## CORS deployed
 
 To get around the CORS ERROR I used proxy server: 
  [https://cors-anywhere.herokuapp.com/]
 This API enables cross-origin requests to anywhere.
 
 #### Sometimes this proxy is unstable
+
+## CORS local
+
+I was used CORS-ANYWHERE, a NodeJS proxy which adds CORS headers to the proxied request.
 
 ## This App is Completed and I had a lot of fun.
