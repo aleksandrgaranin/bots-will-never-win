@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bots-will-never-win/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/bots-will-never-win/static/js/main.90559fda.chunk.js",
+    "main.js.map": "/bots-will-never-win/static/js/main.90559fda.chunk.js.map",
+    "runtime-main.js": "/bots-will-never-win/static/js/runtime-main.3dd3b94b.js",
+    "runtime-main.js.map": "/bots-will-never-win/static/js/runtime-main.3dd3b94b.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/bots-will-never-win/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.96a5c972.chunk.js": "/bots-will-never-win/static/js/2.96a5c972.chunk.js",
+    "static/js/2.96a5c972.chunk.js.map": "/bots-will-never-win/static/js/2.96a5c972.chunk.js.map",
+    "static/js/3.cec13886.chunk.js": "/bots-will-never-win/static/js/3.cec13886.chunk.js",
+    "static/js/3.cec13886.chunk.js.map": "/bots-will-never-win/static/js/3.cec13886.chunk.js.map",
+    "index.html": "/bots-will-never-win/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/bots-will-never-win/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/bots-will-never-win/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.96a5c972.chunk.js.LICENSE.txt": "/bots-will-never-win/static/js/2.96a5c972.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3dd3b94b.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.96a5c972.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.90559fda.chunk.js"
+  ]
+}
