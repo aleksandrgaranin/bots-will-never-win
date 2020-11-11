@@ -1,3 +1,14 @@
+# Requirements 
+
+Make sure you have Node.js and Npm installed in your machine.
+
+Install Node.js
+
+Install Npm
+
+
+
+
 # Run React App
 
 To run this application locally:
@@ -15,7 +26,7 @@ To run this application locally:
 
 ## Third Party Packages 
 
-axios, react-bootstrap, bootstrap, clone-deep, react-markdown,
+axios, react-bootstrap, bootstrap, clone-deep, react-markdown
 
 ## CORS 
 
