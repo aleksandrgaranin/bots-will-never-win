@@ -21,7 +21,7 @@ function App() {
       return { ...prevParanms, [param]: value }
     })
   }
-  
+
 
   let jobElement = null
 
@@ -29,24 +29,27 @@ function App() {
     jobElement = (
       <h2 style={{ textAlign: 'center', color: 'blue' }}>...loading...</h2>
     )
-  }else{
+  } else {
     jobElement = (
-      <Container style={{ backgroundColor: 'lightgray', padding: '25px' }}>
-      <h2 style={{ textAlign: 'center', color: 'darkblue' }}> Jobs from GitHub API</h2>
-      {error && <h2>Error...something went wrong. Please reload the page</h2>}
-      <SearchForm params={params} onParamChange={paramChangeHandler}></SearchForm>
+
+
       <div>
         <JPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
         <Jobs jobs={jobs} />
         <JPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
-      </div>     
-    </Container>
+      </div>
+
     )
   }
 
   return (
     <div>
-      {jobElement}
+      <Container style={{ backgroundColor: 'skyblue', padding: '25px' }}>
+        <h2 style={{ textAlign: 'center', color: 'darkblue' }}> Jobs from GitHub API</h2>
+        {error && <h2>Error...something went wrong. Please reload the page</h2>}
+        <SearchForm params={params} onParamChange={paramChangeHandler} ></SearchForm>
+        {jobElement}
+      </Container>
     </div>
   );
 }

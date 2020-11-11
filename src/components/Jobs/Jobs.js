@@ -24,7 +24,7 @@ const Jobs = ({ jobs }) => {
     const closeModal = () => {
         setModalShow(false)
     }
-  
+
     let sorted = unsortedJobs
 
     const sortByStringhandler = (event, sortKey) => {
@@ -77,23 +77,35 @@ const Jobs = ({ jobs }) => {
             setIsAscendingDate(0)
             setUnsortedJobs(cloneDeep(jobs))
         }
-    }   
+    }
 
     return (
         <div>
             <Table striped bordered hover variant="dark" responsive>
                 <thead>
                     <tr>
-                        <th onClick={e => sortByStringhandler(e, 'title')}>Title</th>
-                        <th onClick={e => sortByStringhandler(e, 'company')}>Company Name</th>
-                        <th onClick={e => sortByDateHandler(e, 'created_at')}>Date</th>
-                        <th onClick={e => sortByStringhandler(e, 'location')}>Location</th>
+                        <th
+                            onClick={e => sortByStringhandler(e, 'title')}
+                            style={{ cursor: 'pointer', textAlign: 'center' }}
+                        >Title </th>
+                        <th
+                            onClick={e => sortByStringhandler(e, 'company')}
+                            style={{ cursor: 'pointer', textAlign: 'center' }}
+                        >Company Name</th>
+                        <th
+                            onClick={e => sortByDateHandler(e, 'created_at')}
+                            style={{ cursor: 'pointer', textAlign: 'center' }}
+                        >Date</th>
+                        <th
+                            onClick={e => sortByStringhandler(e, 'location')}
+                            style={{ cursor: 'pointer', textAlign: 'center' }}
+                        >Location</th>
                     </tr>
                 </thead>
                 <tbody>
                     {sorted ? sorted.map(job => {
                         return (
-                            <tr key={job.id} onClick={() => showModalHandler(job)} >
+                            <tr key={job.id} onClick={() => showModalHandler(job)} style={{ cursor: 'pointer' }}>
                                 <td>
                                     {job.title}
                                     <br />
@@ -103,18 +115,20 @@ const Jobs = ({ jobs }) => {
                                 <td>{job.location}</td>
                             </tr>
                         )
-                    }): jobs.map(job => {
+                    }) : jobs.map(job => {
                         return (
-                            <tr key={job.id} onClick={() => showModalHandler(job)} >
+                            <tr key={job.id} onClick={() => showModalHandler(job)} style={{ cursor: 'pointer' }}>
                                 <td>
                                     {job.title}
                                     <br />
-                                    <Badge className="m-1 mb-2" variant="success">{job.type}</Badge></td>
+                                    <Badge className="m-1 mb-2" variant="success">{job.type}</Badge>
+                                </td>
                                 <td>{job.company}</td>
                                 <td>{new Date(job.created_at).toLocaleDateString()}</td>
                                 <td>{job.location}</td>
                             </tr>
-                        )})}
+                        )
+                    })}
                 </tbody>
 
             </Table>
