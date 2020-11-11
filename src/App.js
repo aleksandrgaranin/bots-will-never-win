@@ -44,9 +44,9 @@ function App() {
 
   return (
     <div>
-      <Container style={{ backgroundColor: 'skyblue', padding: '25px' }}>
+      <Container style={{ backgroundColor: 'lightgray', padding: '25px' }}>
         <h2 style={{ textAlign: 'center', color: 'darkblue' }}> Jobs from GitHub API</h2>
-        {error && <h2>Error...something went wrong. Please reload the page</h2>}
+        {error && <h2>Error...something went wrong. Please reload the page!!!</h2>}
         <SearchForm params={params} onParamChange={paramChangeHandler} ></SearchForm>
         {jobElement}
       </Container>

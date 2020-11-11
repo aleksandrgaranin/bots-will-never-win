@@ -50,7 +50,6 @@ export default function useFetchJobs(params, page) {
             if (axios.isCancel(err)) return
             dispatch({ type: ACTIONS.ERROR, payload: { error: err } })
         })
-
         return () => {
             cancelTokenData.cancel()
             cancelTokenPage.cancel()
