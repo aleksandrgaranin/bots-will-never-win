@@ -14,11 +14,11 @@ To run this application locally:
 1. Open a terminal and clone repository into the folder where you want to store it 
     #### $git clone https://github.com/aleksandrgaranin/bots-will-never-win.git
 2. Move to the cloned repository by 
-    #### $cd bots-will-never-win
+    #### $cd bots-will-never-win/
 3. Run command 
     #### $npm install
 3. Move to the cloned repository 
-    #### $cd src
+    #### $cd src/
     open terminal and type:
     #### $node proxy.js
 4. Go back to he cloned repository 
