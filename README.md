@@ -7,9 +7,9 @@ To run this application locally:
 2. Move to the cloned repository by 
     #### $cd bots-will-never-win
 3. Run command 
-    #### /$npm install
+    #### $npm install
 4. Run the server by typing 
-    #### /$npm start
+    #### $npm start
 5. App url is:
     #### http://localhost:3000
 
@@ -20,7 +20,7 @@ axios, react-bootstrap, bootstrap, clone-deep, react-markdown,
 ## CORS 
 
 To get around the CORS ERROR I used: 
-    #### https://cors-anywhere.herokuapp.com/
+ [https://cors-anywhere.herokuapp.com/]
 This API enables cross-origin requests to anywhere.
 
 ## This App is Completed and I had a lot of fun.
