@@ -17,14 +17,20 @@ To run this application locally:
     #### $cd bots-will-never-win
 3. Run command 
     #### $npm install
-4. Run the server by typing 
-    #### $npm start
+3. Move to the cloned repository 
+    #### $cd src
+    open terminal and type:
+    #### $node proxy.js
+4. Go back to he cloned repository 
+    #### cd .. 
+    and Run the server by typing: 
+    #### $npm start    
 5. App url is:
     #### http://localhost:3000
 
 ## Third Party Packages 
 
-axios, react-bootstrap, bootstrap, clone-deep, react-markdown, gh-pages(for deployment to HitHub)
+axios, react-bootstrap, bootstrap, clone-deep, react-markdown, gh-pages (for deployment to HitHub), cors-anywhere(fro local proxy server)
 
 ## CORS 
 
