@@ -9,7 +9,8 @@ const ACTIONS = {
 }
 const LOCAL_PROXY = "http://127.0.0.1:8080/"
 const AROUND_CORS = 'https://cors-anywhere.herokuapp.com/'
-const BASE_URL = LOCAL_PROXY + 'https://jobs.github.com/positions.json'
+const BASE_URL = AROUND_CORS + 'https://jobs.github.com/positions.json'
+// const BASE_URL = LOCAL_PROXY + 'https://jobs.github.com/positions.json'
 
 const reducer = (state, action) => {
     switch (action.type) {

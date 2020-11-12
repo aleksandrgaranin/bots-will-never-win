@@ -22,12 +22,12 @@ const JobElement = (props) => {
                 <Badge className="mr-1 mb-2" variant="success">{props.job.type}</Badge>
                 <br />
                 <hr/>
-                <div>
+                <div style={{wordBreak: 'break-all'}}>
                     <p style={{color:'darkblue'}}>How to aply:</p>
                     <ReactMarkdown source={props.job.how_to_apply} />
                 </div>
                 <hr/>
-                <div>
+                <div  style={{wordBreak: 'break-all'}}>
                     <ReactMarkdown source={props.job.description} />
                 </div>
 
