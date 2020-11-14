@@ -9,8 +9,8 @@ const ACTIONS = {
 }
 const LOCAL_PROXY = "http://127.0.0.1:8080/"
 const AROUND_CORS = 'https://cors-anywhere.herokuapp.com/'
-// const BASE_URL = AROUND_CORS + 'https://jobs.github.com/positions.json'
-const BASE_URL = LOCAL_PROXY + 'https://jobs.github.com/positions.json'
+const BASE_URL = AROUND_CORS + 'https://jobs.github.com/positions.json'
+// const BASE_URL = LOCAL_PROXY + 'https://jobs.github.com/positions.json'
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -33,7 +33,7 @@ export default function useFetchJobs(params, page) {
         const cancelTokenData = axios.CancelToken.source()
         dispatch({ type: ACTIONS.MAKE_REQUEST })
         axios.get(BASE_URL, {
-            cancelTokenData: cancelTokenData.token,
+            cancelToken: cancelTokenData.token,
             params: { markdown: true, page: page, ...params }
         }).then(res => {
             dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: res.data } })
@@ -44,7 +44,7 @@ export default function useFetchJobs(params, page) {
 
         const cancelTokenPage = axios.CancelToken.source()
         axios.get(BASE_URL, {
-            cancelTokenPage: cancelTokenPage.token,
+            cancelToken: cancelTokenPage.token,
             params: { markdown: true, page: page + 1, ...params }
         }).then(res => {
             dispatch({ type: ACTIONS.UPDATE_HAS_NEXT_PAGE, payload: { hasNextPage: res.data.length !== 0 } })
