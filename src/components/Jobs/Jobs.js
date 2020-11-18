@@ -15,7 +15,6 @@ const Jobs = ({ jobs }) => {
         setUnsortedJobs(cloneDeep(jobs))
     }, []);
 
-    // console.log("unsorted", unsortedJobs)
     const showModalHandler = (job) => {
         setModalJob(job)
         setModalShow(true)
@@ -25,11 +24,9 @@ const Jobs = ({ jobs }) => {
         setModalShow(false)
     }
 
-    let sorted = unsortedJobs
-
     const sortByStringhandler = (event, sortKey) => {
         if (isAscendingString === 0) {
-            sorted = unsortedJobs.sort((a, b) => {
+            unsortedJobs.sort((a, b) => {
                 let ta = a[sortKey].trim().toLowerCase(),
                     tb = b[sortKey].trim().toLowerCase();
                 if (ta < tb) {
@@ -41,7 +38,7 @@ const Jobs = ({ jobs }) => {
             })
             setIsAscendingString(1)
         } else if (isAscendingString === 1) {
-            sorted = unsortedJobs.sort((a, b) => {
+            unsortedJobs.sort((a, b) => {
                 let ta = a[sortKey].trim().toLowerCase(),
                     tb = b[sortKey].trim().toLowerCase();
                 if (ta > tb) {
@@ -60,14 +57,14 @@ const Jobs = ({ jobs }) => {
 
     const sortByDateHandler = (event, sortKey) => {
         if (isAscendingDate === 0) {
-            sorted = unsortedJobs.sort((a, b) => {
+            unsortedJobs.sort((a, b) => {
                 let da = new Date(a[sortKey]),
                     db = new Date(b[sortKey]);
                 return da - db;
             })
             setIsAscendingDate(1)
         } else if (isAscendingDate === 1) {
-            sorted = unsortedJobs.sort((a, b) => {
+            unsortedJobs.sort((a, b) => {
                 let da = new Date(a[sortKey]),
                     db = new Date(b[sortKey]);
                 return db - da;
@@ -103,7 +100,7 @@ const Jobs = ({ jobs }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {sorted ? sorted.map(job => {
+                    {unsortedJobs ? unsortedJobs.map(job => {
                         return (
                             <tr key={job.id} onClick={() => showModalHandler(job)} style={{ cursor: 'pointer' }}>
                                 <td>
@@ -140,5 +137,10 @@ const Jobs = ({ jobs }) => {
         </div>
     )
 }
-export default Jobs;
+export default React.memo(
+    Jobs, 
+    (prevProps, nextProps) => 
+        nextProps.show === prevProps.show &&
+        nextProps.children === prevProps.children
+    );
 

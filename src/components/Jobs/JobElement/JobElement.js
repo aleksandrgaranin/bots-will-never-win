@@ -39,4 +39,9 @@ const JobElement = (props) => {
     );
 }
 
-export default JobElement
+export default React.memo(
+    JobElement, 
+    (prevProps, nextProps) => 
+        nextProps.show === prevProps.show &&
+        nextProps.children === prevProps.children
+    );
